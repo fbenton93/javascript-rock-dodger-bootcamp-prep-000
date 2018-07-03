@@ -61,13 +61,12 @@ function createRock(x) {
 
 
 
-  function moveRock(rock) {
-    var top = 0
+  function moveRock() {
     function step() {
       rock.style.top = `${top += 2}px`
     }
     
-    if (rock.style.top < 380 && checkCollision(rock) === false) {
+    if (rock.style.top <= 380 && checkCollision(rock) === false) {
        window.requestAnimationFrame(step)
      }
 
@@ -77,14 +76,15 @@ function createRock(x) {
      }
 
 
-     if (rock.style.top === 380 && checkCollision(rock) === false) {
+     if (rock.style.top === 400 && checkCollision(rock) === false) {
        rock.remove();
      }
      
+     window.requestAnimationFrame(step);
     
   }
 
-
+  
   ROCKS.push(rock)
 
 
